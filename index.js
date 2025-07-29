@@ -1,6 +1,10 @@
 const express = require('express');
+const cors = require('cors'); // ← أضف هذا السطر
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors()); // ← أضف هذا السطر لتفعيل CORS لجميع الطلبات
 
 app.use(express.json());
 
@@ -19,4 +23,5 @@ app.use('/api/cart', require('./routes/cart'));
 app.use('/api/orders', require('./routes/orders'));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
